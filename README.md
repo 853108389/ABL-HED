@@ -13,8 +13,26 @@ Reasoning by Abductive Learning_ in NeurIPS 2019.
 3. ZOOpt (as a submodule)
 
 ### Install Swipl
+
 [http://www.swi-prolog.org/build/unix.html](http://www.swi-prolog.org/build/unix.html)
 
+linux: you can use these code to install swi-prolog 
+
+```bash
+% sudo apt-get install software-properties-common
+
+% sudo apt-add-repository ppa:swi-prolog/stable
+% sudo apt-get update
+% sudo apt-get install swi-prolog
+```
+
+and then
+
+```bash
+whereis swi-prolog
+```
+
+` my path is /usr/lib/swi-prolog  this path is your prolog root dir`
 
 ### Install python3
 
@@ -23,11 +41,12 @@ Reasoning by Abductive Learning_ in NeurIPS 2019.
 #### Install required package
 
 ```shell
-#install numpy tensorflow keras
+#install numpy tensorflow keras pillow
 pip3 install numpy
 pip3 install tensorflow
 pip3 install keras
 pip3 install zoopt
+pip3 install pillow
 ```
 
 **Set environment variables(Should change file path according to your situation)**
@@ -37,19 +56,24 @@ pip3 install zoopt
 git submodule update --init --recursive
 
 export ABL_HOME=$PWD
-cp /usr/local/lib/swipl/lib/x86_64-linux/libswipl.so $ABL_HOME/src/logic/lib/
+cp /usr/lib/swi-prolog/lib/x86_64-linux/libswipl.so $ABL_HOME/src/logic/lib/
 export LD_LIBRARY_PATH=$ABL_HOME/src/logic/lib
-export SWI_HOME_DIR=/usr/local/lib/swipl/
+export SWI_HOME_DIR=/usr/lib/swi-prolog/
 
 # for GPU user
 export LD_LIBRARY_PATH=$ABL_HOME/src/logic/lib:/usr/local/cuda:$LD_LIBRARY_PATH
-
 ```
-
 
 #### Install Abductive Learning code
 
 **First change the `swipl_include_dir` and `swipl_lib_dir` in `setup.py` to your own SWI-Prolog path.**
+
+```python
+swipl_include_dir = '/usr/local/lib/swipl/include'
+swipl_lib_dir = '/usr/local/lib/swipl/lib/x86_64-linux'
+```
+
+and then 
 
 ```Shell
 cd src/logic/prolog
@@ -73,6 +97,7 @@ python3 main.py
 ```
 
 or
+
 ```shell
 python3 main.py --help
 ```
@@ -83,6 +108,7 @@ together, e.g.,
 ```shell
 python main.py --src_data_name random_images --src_data_file random_equation_data_train_len_26_test_len_26_sys_2_.pk
 ```
+
 ## Authors
 
 - [Wang-Zhou Dai](http://daiwz.net) (Imperial College London)
