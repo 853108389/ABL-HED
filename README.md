@@ -57,6 +57,7 @@ git submodule update --init --recursive
 
 export ABL_HOME=$PWD
 cp /usr/lib/swi-prolog/lib/x86_64-linux/libswipl.so $ABL_HOME/src/logic/lib/
+cp /usr/lib/swi-prolog/lib/x86_64-linux/libswipl.so.8 $ABL_HOME/src/logic/lib/
 export LD_LIBRARY_PATH=$ABL_HOME/src/logic/lib
 export SWI_HOME_DIR=/usr/lib/swi-prolog/
 
