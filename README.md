@@ -70,8 +70,8 @@ export LD_LIBRARY_PATH=$ABL_HOME/src/logic/lib:/usr/local/cuda:$LD_LIBRARY_PATH
 **First change the `swipl_include_dir` and `swipl_lib_dir` in `setup.py` to your own SWI-Prolog path.**
 
 ```python
-swipl_include_dir = '/usr/local/lib/swipl/include'
-swipl_lib_dir = '/usr/local/lib/swipl/lib/x86_64-linux'
+swipl_include_dir = '/usr/lib/swi-prolog/include'
+swipl_lib_dir = '/usr/lib/swi-prolog/lib/x86_64-linux'
 ```
 
 and then 
